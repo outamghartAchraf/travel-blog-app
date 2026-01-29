@@ -36,7 +36,7 @@
             class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg"
           />
           <button
-            class="absolute bottom-0 right-0 bg-white text-teal-500 w-8 h-8 rounded-full flex items-center justify-center shadow-md"
+            class="absoReadte bottom-0 right-0 bg-white text-teal-500 w-8 h-8 rounded-full flex items-center justify-center shadow-md"
             aria-label="Modifier la photo"
           >
             <i class="fas fa-camera text-sm"></i>
@@ -47,21 +47,89 @@
       </div>
     </section>
 
-        <section class="max-w-7xl mx-auto px-4 -mt-6 mb-6">
-        <div class="grid grid-cols-3 gap-3">
-            <div class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition-shadow">
-                <p class="text-2xl font-bold text-teal-500">24</p>
-                <p class="text-xs text-gray-500 mt-1">Articles lus</p>
-            </div>
-            <div class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition-shadow">
-                <p class="text-2xl font-bold text-teal-500">8</p>
-                <p class="text-xs text-gray-500 mt-1">Favoris</p>
-            </div>
-            <div class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition-shadow">
-                <p class="text-2xl font-bold text-teal-500">3h</p>
-                <p class="text-xs text-gray-500 mt-1">Temps total</p>
-            </div>
+    <section class="max-w-7xl mx-auto px-4 -mt-6 mb-6">
+      <div class="grid grid-cols-3 gap-3">
+        <div
+          class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition-shadow"
+        >
+          <p class="text-2xl font-bold text-teal-500">24</p>
+          <p class="text-xs text-gray-500 mt-1">Articles read</p>
         </div>
+        <div
+          class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition-shadow"
+        >
+          <p class="text-2xl font-bold text-teal-500">8</p>
+          <p class="text-xs text-gray-500 mt-1">Favoris</p>
+        </div>
+        <div
+          class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition-shadow"
+        >
+          <p class="text-2xl font-bold text-teal-500">3h</p>
+          <p class="text-xs text-gray-500 mt-1">Temps total</p>
+        </div>
+      </div>
     </section>
+
+    <main class="max-w-7xl mx-auto px-4 pb-24">
+      <h2 class="text-lg font-semibold text-gray-800 mb-4">
+        Historique de lecture
+      </h2>
+
+      <div class="space-y-4">
+        <article
+          class="bg-white rounded-xl shadow-md overflow-hidden flex hover:shadow-lg transition-shadow"
+        >
+          <img
+            src="/assets/images/acticle1.jpg"
+            alt="Yellow River"
+            class="w-28 h-28 object-cover"
+          />
+          <div class="p-4 flex-1">
+            <h3 class="font-semibold text-gray-800 mb-1">Yellow River</h3>
+            <p class="text-xs text-gray-500 mb-2">China · 15 min</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-gray-400">Il y a 2 jours</span>
+              <span class="text-xs text-teal-500 font-medium">Read</span>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="bg-white rounded-xl shadow-md overflow-hidden flex hover:shadow-lg transition-shadow"
+        >
+          <img
+            src="/assets/images/acticle2.jpg"
+            alt="Mountain Peak"
+            class="w-28 h-28 object-cover"
+          />
+          <div class="p-4 flex-1">
+            <h3 class="font-semibold text-gray-800 mb-1">Mountain Peak</h3>
+            <p class="text-xs text-gray-500 mb-2">Switzerland · 8 min</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-gray-400">Il y a 5 jours</span>
+              <span class="text-xs text-teal-500 font-medium">Read</span>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="bg-white rounded-xl shadow-md overflow-hidden flex hover:shadow-lg transition-shadow"
+        >
+          <img
+            src="/assets/images/acticle3.jpg"
+            alt="Forest Trail"
+            class="w-28 h-28 object-cover"
+          />
+          <div class="p-4 flex-1">
+            <h3 class="font-semibold text-gray-800 mb-1">Forest Trail</h3>
+            <p class="text-xs text-gray-500 mb-2">Norway · 10 min</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-gray-400">Il y a 1 semaine</span>
+              <span class="text-xs text-teal-500 font-medium">Read</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
   </body>
 </html>
