@@ -3,296 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travel Blog App</title>
+    <title>Get Started</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
   </head>
-  <body>
-    <header class="bg-white sticky top-0 z-50 shadow-sm">
+  <body class="bg-gray-50">
+    <div class="relative h-screen w-full overflow-hidden">
       <div
-        class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between"
+        class="absolute inset-0 bg-cover bg-center"
+        style="
+          background-image: url('assets/images/start.jpg');
+        "
       >
-        <button class="text-2xl" aria-label="Menu">
-          <i class="fas fa-bars"></i>
-        </button>
-
-        <button class="text-2xl" aria-label="Search">
-          <i class="fas fa-search"></i>
-        </button>
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"
+        ></div>
       </div>
-    </header>
 
-    <main class="max-w-7xl mx-auto px-4 pb-24">
-      <section class="mt-6">
-        <h2 class="text-lg font-semibold text-gray-800 mb-4">
-          Blogger Of The Week
-        </h2>
-        <div class="flex gap-4 overflow-x-auto scroll-hidden pb-2">
-          <div class="flex flex-col items-center min-w-fit">
-            <img
-              src="./assets/images/avatar1.jpg"
-              alt="kris"
-              class="w-16 h-16 rounded-full object-cover border-2 border-teal-400"
-            />
-            <span class="text-xs mt-2 text-gray-600">Hanan</span>
-            <span class="text-xs text-gray-500">Hudson</span>
-          </div>
-
-          <div class="flex flex-col items-center min-w-fit">
-            <img
-              src="./assets/images/avatar2.jpg"
-              alt="Achraf"
-              class="w-16 h-16 rounded-full object-cover border-2 border-teal-400"
-            />
-            <span class="text-xs mt-2 text-gray-600">Achraf</span>
-            <span class="text-xs text-gray-500">Out</span>
-          </div>
-
-          <div class="flex flex-col items-center min-w-fit">
-            <img
-              src="./assets/images/avatar3.jpg"
-              alt="Salwa"
-              class="w-16 h-16 rounded-full object-cover border-2 border-teal-400"
-            />
-            <span class="text-xs mt-2 text-gray-600">Salwa</span>
-            <span class="text-xs text-gray-500">Hudson</span>
-          </div>
-
-          <div class="flex flex-col items-center min-w-fit">
-            <img
-              src="./assets/images/avatar4.jpg"
-              alt="mohmed"
-              class="w-16 h-16 rounded-full object-cover border-2 border-teal-400"
-            />
-            <span class="text-xs mt-2 text-gray-600">Mohmed</span>
-            <span class="text-xs text-gray-500">Barada</span>
-          </div>
-
-          <div class="flex flex-col items-center min-w-fit">
-            <img
-              src="./assets/images/avatar5.jpg"
-              alt="sara"
-              class="w-16 h-16 rounded-full object-cover border-2 border-teal-400"
-            />
-            <span class="text-xs mt-2 text-gray-600">Sara</span>
-            <span class="text-xs text-gray-500">Machari</span>
-          </div>
+      <div
+        class="relative z-10 flex justify-between items-center px-6 pt-3 text-black"
+      >
+        <span class="text-sm font-semibold">9:41</span>
+        <div class="flex items-center gap-2">
+          <i class="fas fa-signal text-sm"></i>
+          <i class="fas fa-wifi text-sm"></i>
+          <i class="fas fa-battery-full text-sm"></i>
         </div>
-      </section>
+      </div>
 
-      <section class="mt-8">
-        <h2 class="text-lg font-semibold text-gray-800 mb-4">
-          What Do You Want To Read?
-        </h2>
-        <div class="flex gap-2 overflow-x-auto scroll-hidden pb-2">
-          <button
-            class="px-4 py-2 rounded-full bg-teal-400 text-white text-sm font-medium whitespace-nowrap transition-all"
-          >
-            All
-          </button>
-
-          <button
-            class="filter-btn px-4 py-2 rounded-full bg-white text-gray-700 text-sm font-medium whitespace-nowrap transition-all border border-gray-200"
-          >
-            Forest
-          </button>
-
-          <button
-            class="filter-btn px-4 py-2 rounded-full bg-white text-gray-700 text-sm font-medium whitespace-nowrap transition-all border border-gray-200"
-          >
-            Beach
-          </button>
-          <button
-            class="filter-btn px-4 py-2 rounded-full bg-white text-gray-700 text-sm font-medium whitespace-nowrap transition-all border border-gray-200"
-          >
-            River
-          </button>
-          <button
-            class="filter-btn px-4 py-2 rounded-full bg-white text-gray-700 text-sm font-medium whitespace-nowrap transition-all border border-gray-200"
-          >
-            Mountains
-          </button>
-          <button
-            class="filter-btn px-4 py-2 rounded-full bg-white text-gray-700 text-sm font-medium whitespace-nowrap transition-all border border-gray-200"
-          >
-            Road
-          </button>
+      <div
+        class="relative z-10 h-full flex flex-col justify-between px-6 pb-12"
+      >
+      
+        <div class="mt-20">
+          <h1 class="text-5xl font-bold text-white leading-tight">
+            Shoot Beyond<br />the limits
+          </h1>
         </div>
-      </section>
-
-      <section class="mt-6 space-y-4">
-        <article class="bg-white rounded-2xl overflow-hidden shadow-md">
-          <a href="/pages/acticle.html" class="block relative">
-            <img
-              src="assets/images/acticle1.jpg"
-              alt="river in China"
-              class="w-full h-56 object-cover"
-            />
-
-            <button
-              class="absolute top-4 right-4 bg-white w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-red-500"
-              aria-label="add to favorites"
-            >
-              <i class="fas fa-heart"></i>
-            </button>
-          </a>
-
-          <div class="p-4">
-            <a href="/pages/acticle.html">
-              <h3 class="text-lg font-semibold text-gray-800 mb-2">
-                Yellow River
-              </h3>
-            </a>
-
-            <div class="flex items-center text-sm text-gray-500 gap-3">
-              <span class="flex items-center gap-1">
-                <i class="fas fa-map-marker-alt"></i>
-                china
-              </span>
-
-              <span class="flex items-center gap-1">
-                <i class="far fa-clock"></i>
-                15 min
-              </span>
-
-              <span class="flex items-center gap-1">
-                <i class="far fa-heart"></i>
-                12k
-              </span>
-            </div>
-            <p class="text-xs text-gray-500 mt-2">by Ian Jachson</p>
-          </div>
-        </article>
-
-        <article class="bg-white rounded-2xl overflow-hidden shadow-md">
-          <a href="acticle.html" class="block relative">
-            <img
-              src="assets/images/acticle2.jpg"
-              alt="englend"
-              class="w-full h-56 object-cover"
-            />
-
-            <button
-              class="absolute top-4 right-4 bg-white w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-red-500"
-              aria-label="add to favorites"
-            >
-              <i class="fas fa-heart"></i>
-            </button>
-          </a>
-
-          <div class="p-4">
-            <a href="acticle.html">
-              <h3 class="text-lg font-semibold text-gray-800 mb-2">
-                Sammer englend
-              </h3>
-            </a>
-
-            <div class="flex items-center text-sm text-gray-500 gap-3">
-              <span class="flex items-center gap-1">
-                <i class="fas fa-map-marker-alt"></i>
-                china
-              </span>
-
-              <span class="flex items-center gap-1">
-                <i class="far fa-clock"></i>
-                15 min
-              </span>
-
-              <span class="flex items-center gap-1">
-                <i class="far fa-heart"></i>
-                12k
-              </span>
-            </div>
-            <p class="text-xs text-gray-500 mt-2">by Ian Jachson</p>
-          </div>
-        </article>
-
-        <article class="bg-white rounded-2xl overflow-hidden shadow-md">
-          <a href="acticle.html" class="block relative">
-            <img
-              src="assets/images/acticle3.jpg"
-              alt="Maldives"
-              class="w-full h-56 object-cover"
-            />
-
-            <button
-              class="absolute top-4 right-4 bg-white w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-red-500"
-              aria-label="add to favorites"
-            >
-              <i class="fas fa-heart"></i>
-            </button>
-          </a>
-
-          <div class="p-4">
-            <a href="acticle.html">
-              <h3 class="text-lg font-semibold text-gray-800 mb-2">
-                Sunset Beach
-              </h3>
-            </a>
-
-            <div class="flex items-center text-sm text-gray-500 gap-3">
-              <span class="flex items-center gap-1">
-                <i class="fas fa-map-marker-alt"></i>
-                Maldives
-              </span>
-
-              <span class="flex items-center gap-1">
-                <i class="far fa-clock"></i>
-                15 min
-              </span>
-
-              <span class="flex items-center gap-1">
-                <i class="far fa-heart"></i>
-                12k
-              </span>
-            </div>
-            <p class="text-xs text-gray-500 mt-2">by Ian Jachson</p>
-          </div>
-        </article>
-      </section>
-    </main>
-
-    <nav
-      class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50"
-    >
-      <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-around">
-        <button
-          class="flex flex-col items-center text-teal-400"
-          aria-label="Upload"
-        >
-          <div
-            class="w-12 h-12 bg-teal-400 rounded-full flex items-center justify-center text-white"
-          >
-            <i class="fa-solid fa-house"></i>
-            
-          </div>
-        </button>
 
         <a
-          href="index.html"
-          class="flex flex-col items-center text-gray-600 hover:text-teal-400 transition-colors"
+          href="pages/home.html"
+          class="w-full bg-teal-400 hover:bg-teal-500 text-white font-semibold py-4 rounded-full transition-colors duration-200 flex items-center justify-center gap-2"
         >
-          <i class="fas fa-map-marker-alt text-2xl"></i>
-          <span class="text-xs mt-1">Location</span>
-        </a>
-        <a
-          href="#"
-          class="flex flex-col items-center text-gray-600 hover:text-teal-400 transition-colors"
-        >
-          <i class="far fa-heart text-2xl"></i>
-          <span class="text-xs mt-1">Wishlist</span>
-        </a>
-        <a
-          href="./pages/profile.html"
-          class="flex flex-col items-center text-gray-600 hover:text-teal-400 transition-colors"
-        >
-          <i class="far fa-user text-2xl"></i>
-          <span class="text-xs mt-1">Profile</span>
+          Get Started
+          <i class="fas fa-arrow-right"></i>
         </a>
       </div>
-    </nav>
+    </div>
   </body>
 </html>
