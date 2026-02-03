@@ -49,6 +49,9 @@ let trips = [
   }
 ];
 
+const categories = ["All", "Forest", "Beach", "River", "Mountains", "Road"];
+
+
 
 function renderTrips(list = trips) {
   tripsContainer.innerHTML = "";
@@ -89,3 +92,21 @@ function renderTrips(list = trips) {
 }
 
  
+// =====================
+// Filter by Category
+// =====================
+categories.forEach(cat => {
+  const btn = document.createElement("button");
+  btn.textContent = cat;
+  btn.className = "px-4 py-2 rounded-full border text-sm";
+
+  btn.addEventListener("click", () => {
+    if (cat === "All") {
+      renderTrips();
+    } else {
+      renderTrips(trips.filter(t => t.category === cat));
+    }
+  });
+
+  filterContainer.appendChild(btn);
+});
