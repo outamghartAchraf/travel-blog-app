@@ -166,3 +166,28 @@ form.addEventListener("submit", e => {
   renderTrips();
   closeModal();
 });
+
+
+// =====================
+// Edit / Delete Buttons
+// =====================
+function HandeleButtonEvents() {
+  const editButtons = document.querySelectorAll(".edit-btn");
+  editButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = Number(btn.dataset.id);
+      const trip = trips.find(t => t.id === id);
+      if (!trip) return;
+
+      titleInput.value = trip.title;
+      imageInput.value = trip.image;
+      countryInput.value = trip.country;
+      categoryInput.value = trip.category;
+
+      editId = id;
+      openModal();
+    });
+  });
+
+
+}
