@@ -189,5 +189,14 @@ function HandeleButtonEvents() {
     });
   });
 
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+  deleteButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = Number(btn.dataset.id);
+      trips = trips.filter(t => t.id !== id);
+      renderTrips();
+      attachButtonEvents(); 
+    });
+  });
 
 }
