@@ -110,3 +110,19 @@ categories.forEach(cat => {
 
   filterContainer.appendChild(btn);
 });
+
+
+function openModal() {
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+}
+
+function closeModal() {
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
+  form.reset();
+  editId = null;
+}
+
+document.getElementById("open-modal").addEventListener("click", openModal);
+closeModalBtn.addEventListener("click", closeModal);
