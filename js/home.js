@@ -48,3 +48,44 @@ let trips = [
     author: "Ian Jachson"
   }
 ];
+
+
+function renderTrips(list = trips) {
+  tripsContainer.innerHTML = "";
+
+  list.forEach(trip => {
+    const article = document.createElement("article");
+    article.className = "bg-white rounded-2xl overflow-hidden shadow-md";
+
+    article.innerHTML = `
+      <div class="relative">
+        <img src="${trip.image}" alt="${trip.title}" class="w-full h-56 object-cover" />
+      </div>
+
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">${trip.title}</h3>
+
+        <div class="flex items-center text-sm text-gray-500 gap-3">
+          <span><i class="fas fa-map-marker-alt"></i> ${trip.country}</span>
+          <span><i class="far fa-clock"></i> ${trip.time}</span>
+          <span><i class="far fa-heart"></i> ${trip.likes}</span>
+
+          <div class="flex items-center gap-2 ml-auto">
+            <button class="edit-btn text-gray-400 hover:text-blue-500" data-id="${trip.id}">
+              <i class="fas fa-pen"></i>
+            </button>
+            <button class="delete-btn text-gray-400 hover:text-red-500" data-id="${trip.id}">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+
+        <p class="text-xs text-gray-500 mt-2">by ${trip.author}</p>
+      </div>
+    `;
+
+    tripsContainer.appendChild(article);
+  });
+}
+
+ 
