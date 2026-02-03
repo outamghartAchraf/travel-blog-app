@@ -126,3 +126,43 @@ function closeModal() {
 
 document.getElementById("open-modal").addEventListener("click", openModal);
 closeModalBtn.addEventListener("click", closeModal);
+
+
+// =====================
+// Add / Edit 
+// =====================
+form.addEventListener("submit", e => {
+  e.preventDefault();
+
+  if (editId) {
+  
+    trips = trips.map(trip => {
+      if (trip.id === editId) {
+        return {
+          ...trip,
+          title: titleInput.value,
+          image: imageInput.value,
+          country: countryInput.value,
+          category: categoryInput.value
+        };
+      }
+      return trip;
+    });
+  } else {
+   
+    const newTrip = {
+      id: Date.now(),
+      title: titleInput.value,
+      image: imageInput.value,
+      country: countryInput.value,
+      category: categoryInput.value,
+      time: "15 min",
+      likes: "0",
+      author: "You"
+    };
+    trips.push(newTrip);
+  }
+
+  renderTrips();
+  closeModal();
+});
