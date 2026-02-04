@@ -49,10 +49,16 @@ let trips = [
   }
 ];
 
+let editId = null;
+
+// =====================
+// Categories
+// =====================
 const categories = ["All", "Forest", "Beach", "River", "Mountains", "Road"];
 
-
-
+// =====================
+// Render 
+// =====================
 function renderTrips(list = trips) {
   tripsContainer.innerHTML = "";
 
@@ -91,16 +97,30 @@ function renderTrips(list = trips) {
   });
 }
 
- 
 // =====================
 // Filter by Category
 // =====================
-categories.forEach(cat => {
+categories.forEach((cat, index) => {
   const btn = document.createElement("button");
   btn.textContent = cat;
   btn.className = "px-4 py-2 rounded-full border text-sm";
+   
+  if (index === 0) {
+    btn.classList.add("bg-teal-400", "text-white");
+  }
+
 
   btn.addEventListener("click", () => {
+
+        const allButtons = filterContainer.querySelectorAll("button");
+         allButtons.forEach(b => {
+      b.classList.remove("bg-teal-400", "text-white");
+    });
+
+   
+    btn.classList.add("bg-teal-400", "text-white");
+
+
     if (cat === "All") {
       renderTrips();
     } else {
@@ -111,7 +131,9 @@ categories.forEach(cat => {
   filterContainer.appendChild(btn);
 });
 
-
+// =====================
+// Modal 
+// =====================
 function openModal() {
   modal.classList.remove("hidden");
   modal.classList.add("flex");
@@ -127,40 +149,57 @@ function closeModal() {
 document.getElementById("open-modal").addEventListener("click", openModal);
 closeModalBtn.addEventListener("click", closeModal);
 
+modal.addEventListener("click", e => {
+  if (e.target === modal) closeModal();
+});
 
 // =====================
-// Add / Edit 
+// FNCTION EDIT
 // =====================
+
+function editTrip(id) {
+  trips = trips.map(trip => {
+    if (trip.id === id) {
+      return {
+        ...trip,
+        title: titleInput.value,
+        image: imageInput.value,
+        country: countryInput.value,
+        category: categoryInput.value
+      };
+    }
+    return trip;
+  });
+}
+
+// =====================
+// FNCTION ADD
+// =====================
+
+function addTrip() {
+  const newTrip = {
+    id: Date.now(),
+    title: titleInput.value,
+    image: imageInput.value,
+    country: countryInput.value,
+    category: categoryInput.value,
+    time: "15 min",
+    likes: "0",
+    author: "You"
+  };
+
+  trips.push(newTrip);
+}
+
+
+
+
 form.addEventListener("submit", e => {
   e.preventDefault();
-
   if (editId) {
-  
-    trips = trips.map(trip => {
-      if (trip.id === editId) {
-        return {
-          ...trip,
-          title: titleInput.value,
-          image: imageInput.value,
-          country: countryInput.value,
-          category: categoryInput.value
-        };
-      }
-      return trip;
-    });
+    editTrip(editId);
   } else {
-   
-    const newTrip = {
-      id: Date.now(),
-      title: titleInput.value,
-      image: imageInput.value,
-      country: countryInput.value,
-      category: categoryInput.value,
-      time: "15 min",
-      likes: "0",
-      author: "You"
-    };
-    trips.push(newTrip);
+    addTrip();
   }
 
   renderTrips();
@@ -169,34 +208,30 @@ form.addEventListener("submit", e => {
 
 
 // =====================
-// Edit / Delete Buttons
+// Handle Button Edit
 // =====================
-function HandeleButtonEvents() {
-  const editButtons = document.querySelectorAll(".edit-btn");
-  editButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const id = Number(btn.dataset.id);
-      const trip = trips.find(t => t.id === id);
-      if (!trip) return;
 
-      titleInput.value = trip.title;
-      imageInput.value = trip.image;
-      countryInput.value = trip.country;
-      categoryInput.value = trip.category;
 
-      editId = id;
-      openModal();
-    });
-  });
 
-    const deleteButtons = document.querySelectorAll(".delete-btn");
-  deleteButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const id = Number(btn.dataset.id);
-      trips = trips.filter(t => t.id !== id);
-      renderTrips();
-      attachButtonEvents(); 
-    });
-  });
+document.addEventListener("click", e => {
+  const editBtn = e.target.closest(".edit-btn");
+  const deleteBtn = e.target.closest(".delete-btn");
 
-}
+  if (editBtn) {
+    const id = Number(editBtn.dataset.id);
+    handleEditClick(id);
+  }
+
+  if (deleteBtn) {
+    const id = Number(deleteBtn.dataset.id);
+    handleDeleteClick(id);
+  }
+});
+
+
+
+renderTrips();
+ 
+
+
+
