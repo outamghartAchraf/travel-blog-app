@@ -13,9 +13,15 @@ const imageInput = document.getElementById("image");
 const countryInput = document.getElementById("country");
 const categoryInput = document.getElementById("category");
 
+const STORAGE_KEY = "tripsData";
+
+
+
+
 // =====================
 // Data 
 // =====================
+
 let trips = [
   {
     id: 1,
@@ -27,27 +33,27 @@ let trips = [
     likes: "12k",
     author: "Ian Jachson"
   },
-  {
-    id: 2,
-    title: "Summer England",
-    country: "England",
-    image: "../assets/images/acticle2.jpg",
-    category: "Forest",
-    time: "15 min",
-    likes: "12k",
-    author: "Ian Jachson"
-  },
-  {
-    id: 3,
-    title: "Sunset Beach",
-    country: "Maldives",
-    image: "../assets/images/acticle3.jpg",
-    category: "Beach",
-    time: "15 min",
-    likes: "12k",
-    author: "Ian Jachson"
-  }
+  
 ];
+
+
+// =====================
+// save to local storage
+// =====================
+function saveTripsToStorage() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(trips));
+}
+
+function loadTripsFromStorage() {
+  const storedTrips = localStorage.getItem(STORAGE_KEY);
+
+  if (storedTrips) {
+    trips = JSON.parse(storedTrips);
+  } else {
+    saveTripsToStorage(); 
+  }
+}
+
 
 let editId = null;
 
@@ -57,7 +63,7 @@ let editId = null;
 const categories = ["All", "Forest", "Beach", "River", "Mountains", "Road"];
 
 // =====================
-// Render 
+// Render Functions
 // =====================
 function renderTrips(list = trips) {
   tripsContainer.innerHTML = "";
@@ -97,39 +103,6 @@ function renderTrips(list = trips) {
   });
 }
 
-// =====================
-// Filter by Category
-// =====================
-categories.forEach((cat, index) => {
-  const btn = document.createElement("button");
-  btn.textContent = cat;
-  btn.className = "px-4 py-2 rounded-full border text-sm";
-   
-  if (index === 0) {
-    btn.classList.add("bg-teal-400", "text-white");
-  }
-
-
-  btn.addEventListener("click", () => {
-
-        const allButtons = filterContainer.querySelectorAll("button");
-         allButtons.forEach(b => {
-      b.classList.remove("bg-teal-400", "text-white");
-    });
-
-   
-    btn.classList.add("bg-teal-400", "text-white");
-
-
-    if (cat === "All") {
-      renderTrips();
-    } else {
-      renderTrips(trips.filter(t => t.category === cat));
-    }
-  });
-
-  filterContainer.appendChild(btn);
-});
 
 // =====================
 // Modal 
@@ -170,6 +143,8 @@ function editTrip(id) {
     }
     return trip;
   });
+
+   saveTripsToStorage();
 }
 
 // =====================
@@ -189,11 +164,13 @@ function addTrip() {
   };
 
   trips.push(newTrip);
+  saveTripsToStorage();
 }
 
 
-
-
+// =====================
+// Handle form edit/add
+// =====================
 form.addEventListener("submit", e => {
   e.preventDefault();
   if (editId) {
@@ -228,6 +205,7 @@ function handleEditClick(id) {
 // =====================
 function handleDeleteClick(id) {
   trips = trips.filter(t => t.id !== id);
+   saveTripsToStorage();
   renderTrips();
 }
 
@@ -249,6 +227,42 @@ document.addEventListener("click", e => {
 
 
 
+// =====================
+// Filter by Category
+// =====================
+categories.forEach((cat, index) => {
+  const btn = document.createElement("button");
+  btn.textContent = cat;
+  btn.className = "px-4 py-2 rounded-full border text-sm";
+   
+  if (index === 0) {
+    btn.classList.add("bg-teal-400", "text-white");
+  }
+
+
+  btn.addEventListener("click", () => {
+
+      const allButtons = filterContainer.querySelectorAll("button");
+      allButtons.forEach(b => {
+      b.classList.remove("bg-teal-400", "text-white");
+    });
+
+   
+    btn.classList.add("bg-teal-400", "text-white");
+
+
+    if (cat === "All") {
+      renderTrips();
+    } else {
+      renderTrips(trips.filter(t => t.category === cat));
+    }
+  });
+
+  filterContainer.appendChild(btn);
+});
+
+
+loadTripsFromStorage();
 renderTrips();
  
 
