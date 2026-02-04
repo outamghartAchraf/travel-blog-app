@@ -145,6 +145,8 @@ function editTrip(id) {
   });
 
    saveTripsToStorage();
+   showNotification("Trip updated successfully");
+
 }
 
 // =====================
@@ -165,8 +167,9 @@ function addTrip() {
 
   trips.push(newTrip);
   saveTripsToStorage();
-}
+  showNotification("Trip added successfully");
 
+}
 
 // =====================
 // Handle form edit/add
@@ -207,6 +210,8 @@ function handleDeleteClick(id) {
   trips = trips.filter(t => t.id !== id);
    saveTripsToStorage();
   renderTrips();
+  showNotification("Trip deleted successfully", "error");
+
 }
 
 
@@ -260,6 +265,30 @@ categories.forEach((cat, index) => {
 
   filterContainer.appendChild(btn);
 });
+
+
+
+function showNotification(message, type = "success") {
+  const notification = document.getElementById("notification");
+
+  const colors = {
+    success: "bg-green-500",
+    error: "bg-red-500",
+ };
+
+  notification.innerHTML = `
+    <div class="${colors[type]} text-white px-4 py-3 rounded-xl shadow-lg animate-bounce">
+      ${message}
+    </div>
+  `;
+
+  notification.classList.remove("hidden");
+
+  setTimeout(() => {
+    notification.classList.add("hidden");
+  }, 2500);
+}
+
 
 
 loadTripsFromStorage();
