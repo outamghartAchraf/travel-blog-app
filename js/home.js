@@ -210,6 +210,18 @@ form.addEventListener("submit", e => {
 // =====================
 // Handle Button Edit
 // =====================
+function handleEditClick(id) {
+  const trip = trips.find(t => t.id === id);
+  if (!trip) return;
+
+  titleInput.value = trip.title;
+  imageInput.value = trip.image;
+  countryInput.value = trip.country;
+  categoryInput.value = trip.category;
+
+  editId = id;
+  openModal();
+}
 
 
 
