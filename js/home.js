@@ -223,6 +223,13 @@ function handleEditClick(id) {
   openModal();
 }
 
+// =====================
+// Handle Button Delete
+// =====================
+function handleDeleteClick(id) {
+  trips = trips.filter(t => t.id !== id);
+  renderTrips();
+}
 
 
 document.addEventListener("click", e => {
